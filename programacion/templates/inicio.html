@@ -1,0 +1,35 @@
+{% extends 'layout.html' %}
+{% load personality_filters %}
+{% block title%}
+    Fixture Eliminatorias
+{% endblock%}
+{% block content %}
+
+{% for match in partidos %}
+
+<div class="contenedor">
+    <p class="info">{{match.dia.dia|date:"l, d F Y"|upper}} |</p>
+    <p class="info">{{match.horario.horario}}</p>
+    <p>{{match.Local.estadio}}</p>
+    <p class="equipos">{{match.Local.nombre}}</p>
+    <p class="equipos">{{match.Visitante.nombre}}</p>
+    <p class="cuota">{{match.c_local|redondear:2}}</p>
+    <p class="cuota">{{match.c_empate|redondear:2}}</p>
+    <p class="cuota">{{match.c_visitante|redondear:2}}</p>
+</div>
+
+{% endfor %} 
+
+{% comment %} {% for objeto,lista in datos %}
+    <div class="contenedor">
+    <p class="info">{{objeto.dia.dia|date:"l, d F Y"|upper}} |</p>
+    <p class="info">{{objeto.horario.horario}}</p>
+    <p>{{objeto.Local.estadio}}</p>
+    <p class="equipos">{{objeto.Local.nombre}}</p>
+    <p class="equipos">{{objeto.Visitante.nombre}}</p>
+    <p class="apuesta">{{lista.0}}</p>
+    <p class="apuesta">{{lista.1}}</p>
+    <p class="apuesta">{{lista.2}}</p>
+    </div>
+{% endfor %} {% endcomment %}
+{% endblock%}

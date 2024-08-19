@@ -1,0 +1,70 @@
+body{
+    font-family: 'Times New Roman', Times, serif;
+    font-size:18px;
+}
+footer{
+    background-color: #00aded;
+    text-align: center;
+}
+header{
+    background-color: #314f77;
+}
+main{
+    background-color: aqua;
+}
+li{
+    display:inline-block;
+    padding:4px 8px;
+    margin:0px 20px;
+}
+a{
+    text-decoration: none;
+    color:aliceblue
+}
+th {
+    border: 2px solid black;
+}
+.contenedor{
+    color:greenyellow;
+    box-sizing: content-box;
+    width: 390px;
+    height: 230px;
+    display:inline-block;
+    margin: 20px;
+    border: 2px solid black ;
+    border-radius: 5px;
+    background-image: url("https://images.csmonitor.com/csmarchives/2011/06/0613-LRAINER-MOVIE-FILM-REVIEW-Submarine.jpg?alias=standard_900x600") ;
+    background-size: cover;
+    text-align: center;
+    justify-content: center;
+    align-content: center;
+}
+
+.contenedor p:not(.equipos,.apuesta,.cuota){
+    margin-left: 10px;
+}
+.info ,.equipos{
+    display: inline-block;
+}
+.equipos{
+    margin:10px 60px
+}       
+.apuesta{
+    display: inline-block;
+    padding:10px 20px;
+    margin:10px 20px;
+    border: 2px solid black;
+    border-radius: 4px;
+}
+.cuota{
+    display:inline-block;
+    font-weight: bold;
+    color:red;
+    margin-left:20px;
+    margin-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border:3px solid;
+    border-radius: 5px;
+    align-content: center;
+}

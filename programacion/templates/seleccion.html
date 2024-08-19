@@ -1,0 +1,24 @@
+{% extends "inicio.html" %}
+{% block title%}
+    {{seleccion.0.nacionalidad.nombre}}
+{% endblock%}
+{% block content %}
+<table>
+    <thead>
+        <th>Nombres</th>
+        <th>Valor</th>
+        <th>Pais</th>
+        <th>Posicion</th>
+    </thead>
+<tbody>
+{% for selec in seleccion%}
+    <tr>
+    <th>{{selec.nombres}}</th>
+    <th>{{selec.valor}}</th>
+    <th>{{selec.nacionalidad.nombre}}</th>
+    <th>{{selec.posicion.possicion}}</th>
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock%}
