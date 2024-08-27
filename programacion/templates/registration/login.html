@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="Utf-8">
+        <title>Iniciar sesion</title>
+    </head>
+    <body>
+        <form method="POST">
+            {%csrf_token%}
+            {{ form.as_p }}{% comment %}Transforma el formulario a <p>{% endcomment%}
+            <button type="submmit">Iniciar sesion</button> 
+    </body>
+</html>

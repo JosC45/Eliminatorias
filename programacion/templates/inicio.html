@@ -1,10 +1,12 @@
 {% extends 'layout.html' %}
+{% load static %}
 {% load personality_filters %}
 {% block title%}
     Fixture Eliminatorias
 {% endblock%}
 {% block content %}
-
+<form method='POST' action="{% url "apuestas" %}">
+{% csrf_token %}
 {% for match in partidos %}
 
 <div class="contenedor">
@@ -13,12 +15,13 @@
     <p>{{match.Local.estadio}}</p>
     <p class="equipos">{{match.Local.nombre}}</p>
     <p class="equipos">{{match.Visitante.nombre}}</p>
-    <p class="cuota">{{match.c_local|redondear:2}}</p>
-    <p class="cuota">{{match.c_empate|redondear:2}}</p>
-    <p class="cuota">{{match.c_visitante|redondear:2}}</p>
+    <label><input type="checkbox" class="checkbox" name="valores" value="{{match.c_local}}"><p class="cuota">{{match.c_local|redondear:2}}</p></label>
+    <label><input type="checkbox" class="checkbox" name="valores" value="{{match.c_empate}}"><p class="cuota">{{match.c_empate|redondear:2}}</p></label>
+    <label><input type="checkbox" class="checkbox" name="valores" value="{{match.c_visitante}}"><p class="cuota">{{match.c_visitante|redondear:2}}</p></label>
 </div>
-
 {% endfor %} 
+<button class="carrito"><img id="carro" src="{% static "img/3144456.png" %}"></button>
+</form>
 
 {% comment %} {% for objeto,lista in datos %}
     <div class="contenedor">

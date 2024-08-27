@@ -33,7 +33,7 @@ th {
     margin: 20px;
     border: 2px solid black ;
     border-radius: 5px;
-    background-image: url("https://images.csmonitor.com/csmarchives/2011/06/0613-LRAINER-MOVIE-FILM-REVIEW-Submarine.jpg?alias=standard_900x600") ;
+    background-image: url("https://cdn.conmebol.com/wp-content/uploads/2017/05/logo-nueva-conmebol-750px_0.jpg") ;
     background-size: cover;
     text-align: center;
     justify-content: center;
@@ -67,4 +67,42 @@ th {
     border:3px solid;
     border-radius: 5px;
     align-content: center;
+}
+.carrito{
+    position: fixed; /* Mantiene el botón fijo en la ventana del navegador */
+    bottom: 10px; /* Espacio desde el borde inferior de la ventana */
+    right: 10px; /* Espacio desde el borde derecho de la ventana */
+    width: 50px; /* Ajusta el tamaño del botón si es necesario */
+    height: 50px; /* Ajusta el tamaño del botón si es necesario */
+    background-color: transparent; /* Color de fondo para visibilidad */ /* Opcional: borde para visibilidad */
+    top:5%;
+    right:2%;
+    display: flex; /* Usado si necesitas flexbox para otros estilos */
+    align-items: center; /* Centra el contenido verticalmente si es necesario */
+    justify-content: center; /* Centra el contenido horizontalmente si es necesario */
+    padding: 10px; /* Espaciado interno opcional */
+    
+}
+#carro{
+    position: absolute;
+    top: 0; /* Coloca la imagen en la parte superior del contenedor */
+    left: 0; /* Coloca la imagen en la parte izquierda del contenedor */
+    width: 100%; /* Opcional: ajusta el tamaño de la imagen al contenedor */
+    height: auto;
+}
+.checkbox {
+    /* Ocultar el checkbox visualmente pero mantener la funcionalidad */
+    position: absolute; /* O usar visibility: hidden; o display: none; */
+    opacity: 0;
+    width: 0;
+    height: 0;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0); /* Evita que el checkbox sea visible */
+    border: 0;
+}
+  /* Estilo para el estado marcado */
+.checkbox:checked +.cuota{
+    background-color: #4CAF50; /* Color de fondo cuando está seleccionado */
 }

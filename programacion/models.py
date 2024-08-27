@@ -24,7 +24,7 @@ class Partidos(models.Model):
     horario=models.ForeignKey(Horario,related_name='hour',on_delete=models.CASCADE)
     dia=models.ForeignKey(Dia,related_name='day',on_delete=models.CASCADE)
     def __str__(self):
-        return f"{self.local.nombre} VS {self.visitante.nombre}"
+        return f"{self.Local.nombre} VS {self.Visitante.nombre}"
     def c_local(self):
         p_local=(self.Local.nivel_local)
         p_visitante=(self.Visitante.nivel_visitante)

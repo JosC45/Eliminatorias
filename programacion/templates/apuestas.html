@@ -1,0 +1,32 @@
+{% extends 'layout.html'%}
+{% load personality_filters%}
+{% block content %}
+{% for part in partido %}
+    <div>
+        <p>{{part.Local}}</p>
+        <p>{{part.Visitante}}</p>
+        <p>{{part.horario.horario}}</p>
+    </div>    
+{% endfor%}
+{% for apuesta in apuestas %}
+    <div>
+        <p>{{apuesta}}</p>
+    </div>
+{% endfor%}
+{% if ganancia %}
+<form method="POST" action="{% url 'confirmar' %}">
+    {% csrf_token %}
+    <label>Cuota:<input readonly value="{{cuota}}"></label><br>
+    <label>Cantidad:<input readonly value="{{cantidad}}"></label><br>
+    <label>Ganancia:<input readonly value="{{ganancia}}"></label><br>
+    <button type="submit">Apostar</button>
+    </form>
+{% else %}
+<form method="POST" action="{% url 'calcular' %}">
+{% csrf_token %}
+<label for="cuota">Cuota<input readonly value="{{apus|redondear:2}}" name="cuota" ></label><br>
+<label for="cantidad">Cantidad<input type="number" name="cantidad" ></label>
+<button type="submit">Calcular</button>
+</form>
+{% endif %}
+{% endblock %}
