@@ -16,9 +16,9 @@
 {% if ganancia %}
 <form method="POST" action="{% url 'confirmar' %}">
     {% csrf_token %}
-    <label>Cuota:<input readonly value="{{cuota}}"></label><br>
-    <label>Cantidad:<input readonly value="{{cantidad}}"></label><br>
-    <label>Ganancia:<input readonly value="{{ganancia}}"></label><br>
+    <label>Cuota:<input readonly value="{{cuota}}" name="cuota"></label><br>
+    <label>Cantidad:<input readonly value="{{cantidad}}" name="cantidad"></label><br>
+    <label>Ganancia:<input readonly value="{{ganancia}}" name="ganancia"></label><br>
     <button type="submit">Apostar</button>
     </form>
 {% else %}

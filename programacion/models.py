@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -52,3 +53,9 @@ class Jugadores(models.Model):
     posicion=models.ForeignKey(Posicion, related_name="position", on_delete=models.CASCADE)
     nacionalidad=models.ForeignKey(Seleccion, related_name="pais",on_delete=models.CASCADE)
     valor=models.IntegerField()
+
+class Boleta(models.Model):
+    id_usuario=models.ForeignKey(User,on_delete=models.CASCADE)
+    cuota=models.FloatField()
+    cantidad=models.FloatField()
+    total=models.FloatField()

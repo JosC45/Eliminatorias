@@ -1,7 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from .models import *
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth import logout
 # Create your views here.
 
 
@@ -77,4 +78,21 @@ def calcular(request):
     return render(request,'apuestas.html',{'ganancia':ganancias,'cuota':cuotas,'cantidad':cantidades})
 @login_required 
 def confirmar(request):
+    if request.method=="POST":
+        cuota=cambio(request.POST.get("cuota")) 
+        cantidad=cambio(request.POST.get("cantidad"))
+        ganancia=cambio(request.POST.get("ganancia"))
+        usuar=request.user.id      
+        usuario=User.objects.get(id=usuar)
+        print(cuota,cantidad,ganancia,usuario)
+        if cuota and cantidad and ganancia:
+            nueva_boleta=Boleta(
+                cuota =cuota,
+                cantidad =cantidad,
+                total =ganancia,
+                id_usuario =usuario)
+            nueva_boleta.save()
     return render(request,'confirmacion.html')
+def salir(request):
+    logout(request)
+    return redirect("partidos")
